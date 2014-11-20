@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <category label="General">
+  		<setting id="output_folder" type="folder" label="Output folder" default=""/>
+  		<setting label="M3U" type="lsep" />
+ 		<setting id="last_merge_m3u" type="text" default="1970-01-01 23:59:00.000000" visible="false"/>
+		<setting id="check_interval_m3u" label="Intervalo de merge das listas (horas)" type="slider" default="24" range="1,48" option="int" />
+  		<setting id="file_name_lists" label="M3U8 final file name (wo .m3u)" type="text" default="" visible="true"/>
+		<setting label="XMLTV" type="lsep" />
+		<setting id="last_merge" type="text" default="1970-01-01 23:59:00.000000" visible="false"/>
+		<setting id="check_interval" label="Intervalo de merge do epg (dias)" type="slider" default="6" range="1,15" option="int" />
+		<setting id="file_name" label="XMLTV final file name (wo .xml)" type="text" default="" visible="true"/>
+
+  </category>
+    <category label="M3U8 Lists">
+		<setting id="l1" label="[B]Activate List 1[/B]" type="bool" default="false" visible="true"/>
+		<setting id="l1-type" type="enum" values="Local|Remote" label="List type" default="0" visible="eq(-1,true)"/>
+		<setting id="l1-url" label="List url" type="text" default="" visible="eq(-1,1)"/>
+		<setting id="l1-loc" label="List path" type="file"  value="" visible="eq(-3,true)+eq(-2,0)" mask="*.m3u|*.m3u8"/>
+		<setting id="l2" label="[B]Activate List 2[/B]" type="bool" default="false" visible="true"/>
+		<setting id="l2-type" type="enum" values="Local|Remote" label="List type" default="0" visible="eq(-1,true)"/>
+		<setting id="l2-url" label="List url" type="text" default="" visible="eq(-1,1)"/>
+		<setting id="l2-loc" label="List path" type="file"  value="" visible="eq(-3,true)+eq(-2,0)" mask="*.m3u|*.m3u8"/>
+		<setting id="l3" label="[B]Activate List 3[/B]" type="bool" default="false" visible="true"/>
+		<setting id="l3-type" type="enum" values="Local|Remote" label="List type" default="0" visible="eq(-1,true)"/>
+		<setting id="l3-url" label="List url" type="text" default="" visible="eq(-1,1)"/>
+		<setting id="l3-loc" label="List path" type="file"  value="" visible="eq(-3,true)+eq(-2,0)" mask="*.m3u|*.m3u8"/>
+		<setting id="l4" label="[B]Activate List 4[/B]" type="bool" default="false" visible="true"/>
+		<setting id="l4-type" type="enum" values="Local|Remote" label="List type" default="0" visible="eq(-1,true)"/>
+		<setting id="l4-url" label="List url" type="text" default="" visible="eq(-1,1)"/>
+		<setting id="l4-loc" label="List path" type="file"  value="" visible="eq(-3,true)+eq(-2,0)" mask="*.m3u|*.m3u8"/>
+		<setting id="l5" label="[B]Activate List 5[/B]" type="bool" default="false" visible="true"/>
+		<setting id="l5-type" type="enum" values="Local|Remote" label="List type" default="0" visible="eq(-1,true)"/>
+		<setting id="l5-url" label="List url" type="text" default="" visible="eq(-1,1)"/>
+		<setting id="l5-loc" label="List path" type="file"  value="" visible="eq(-3,true)+eq(-2,0)" mask="*.m3u|*.m3u8"/>
+  </category>
+  <category label="XMLTV">
+		<setting id="xmltv1" label="XMLTV1 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv2" label="XMLTV2 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv3" label="XMLTV3 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv4" label="XMLTV4 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv5" label="XMLTV5 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv6" label="XMLTV6 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv7" label="XMLTV7 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv8" label="XMLTV8 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv9" label="XMLTV9 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv10" label="XMLTV10 URL" type="text" default="" visible="true"/>
+		<setting id="xmltv11" label="XMLTV11 URL" type="text" default="" visible="true"/>
+  </category>
+  <category label="PVR Tools">
+		<setting id="merge_lists_now" type="action" label="Merge lists now" action="XBMC.RunScript($CWD/lib/update_lists.py,xmltvmerger)" />
+		<setting id="merge_epgs_now" type="action" label="Merge EPGS now" action="XBMC.RunScript($CWD/lib/update_xml.py,xmltvmerger)" />
+		<setting id="merge_epgs_lists_now" type="action" label="Merge lists + epgs and restart pvr" action="XBMC.RunScript($CWD/lib/update_all.py,xmltvmerger)" />
+		<setting id="restart_pvr" type="action" label="Restart PVR" action="XBMC.StartPVRManager" />
+		
+  </category>
+  
+</settings>
