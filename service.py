@@ -51,7 +51,7 @@ class service:
 			except:
 				pass
 
-			xbmc.sleep(5*60*1000)
+			xbmc.sleep(200)
 
 service()
 
